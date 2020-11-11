@@ -390,6 +390,35 @@ Response example:
 }
 ```
 
+### Post records
+
+`POST /records`
+
+Request parameters (json):
+- collection [string,required] - name of the collection.
+- thread [string,optional] - old name of the thread.
+- new_thread [string,optional] - new name of the thread.
+
+Request example:
+
+```json
+{
+    "collection": "foobar",
+    "thread": "chat1"
+}
+```
+
+Response parameters (json):
+- status [boolean] - request status.
+
+Response example:
+
+```json
+{
+    "status": true
+}
+```
+
 ### Read a record
 
 `POST /record/read`

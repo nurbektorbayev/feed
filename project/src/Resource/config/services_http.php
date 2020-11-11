@@ -25,6 +25,7 @@ return [
                 $r->addRoute('POST',   '/record/unread', 'record/unread.post');
 
                 $r->addRoute('GET',  '/records', 'records.get');
+                $r->addRoute('POST', '/records', 'records.post');
                 $r->addRoute('POST', '/records/read', 'records/read.post');
                 $r->addRoute('DELETE', '/records', 'records.delete');
             });

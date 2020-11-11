@@ -71,4 +71,20 @@ class RecordsController extends LayoutController
             });
         }
     }
+
+    public function post()
+    {
+        $collection = $this->f('collection');
+        $thread = $this->f('thread');
+        $new_thread = $this->f('new_thread');
+
+        $this->validateCollection($collection);
+        $this->validateNotEmpty($thread, 'thread');
+        $this->validateNotEmpty($new_thread, 'new_thread');
+
+        /** @var Database $database */
+        $database = $this->s('database');
+
+        $database->update($thread, $new_thread, $collection);
+    }
 }
