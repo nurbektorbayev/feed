@@ -351,4 +351,21 @@ class Database
 
         return true;
     }
+
+    public function update($thread, $new_thread, $collection)
+    {
+        $pdo = $this->getPdo();
+
+        $collection = $this->getCollectionName($collection);
+
+        /** @noinspection SqlDialectInspection */
+        $query = "
+            UPDATE \"$collection\" SET \"thread\" = :new_thread WHERE \"thread\" = :thread
+        ";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam('new_thread', $new_thread);
+        $stmt->bindParam('thread', $thread);
+        return $stmt->execute();
+    }
 }

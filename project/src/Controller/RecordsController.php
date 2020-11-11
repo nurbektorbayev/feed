@@ -85,6 +85,6 @@ class RecordsController extends LayoutController
         /** @var Database $database */
         $database = $this->s('database');
 
-        $database->update($thread, $new_thread, $collection);
+        $this->setStatus($database->update($thread, $new_thread, $collection));
     }
 }
